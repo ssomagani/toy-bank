@@ -8,7 +8,7 @@ A stream of values is emitted by the stream processing system that simply states
 This version uses Compound Procedures to create intermediate streams of credits and debits.
 You should be able to observe that Volt will emit wrong answers (value=1) sometimes because there is no mechanism for maintaining consistency over chained procedure invocations. 
 The values will quickly converge to a 0 (the expected value) 
-The wrong values are limited to just {1} because there is a single queue for Compound Procedures and the most that the total can be offset by is 1 since that's the amount transferred in each transaction. (although i'm not sure why i never saw -1)
+The wrong values are limited to just {1} because there is a single queue for Compound Procedures and the most that the total can be offset by is 1 since that's the amount transferred in each transaction. It's not -1 since the credit and debit invocations are chained (and hence linearized) in the compound proc and credit is applied first.
 
 ### Running Instructions
 Execute the App.java client and tail the TOTALS_FILE export file to observe the emitted results.

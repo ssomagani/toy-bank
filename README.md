@@ -1,4 +1,5 @@
-# Volt implementation of Jamie Brandon's Toy Bank example (https://www.scattered-thoughts.net/writing/internal-consistency-in-streaming-systems/) to evaluate the internal consistency guarantees of stream processing systems.
+# Volt implementation of Jamie Brandon's Toy Bank example 
+(https://www.scattered-thoughts.net/writing/internal-consistency-in-streaming-systems/) 
 This example simply processes a stream of transactions at a bank where money is transferred from one acccount id to another. Everyone starts with $0 and accounts can go negative so the sum total value of money in the bank will always be 0.
 The stream processing system is expected to split up the transaction events into credits and debits events that are then processed by the respective "operators". 
 A stream of values is emitted by the stream processing system that simply states the sum total value in the bank as it sees. Ideally this value should always be equal to 0.
